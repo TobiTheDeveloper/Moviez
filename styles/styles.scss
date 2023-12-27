@@ -1,0 +1,9 @@
+@import '_media-queries';
+@import '_color';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: $background;
+}
