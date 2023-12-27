@@ -1,0 +1,34 @@
+// Small Phones
+@mixin smallPhones {
+    @media only screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+// medium Phones
+@mixin mediumPhones {
+    @media only screen and (min-width: 481px) and (max-width: 767px) {
+        @content;
+    }
+}
+
+//Large Phones
+@mixin largePhones {
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+        @content;
+    }
+}
+
+//Tablet
+@mixin tablet {
+    @media only screen and (min-width: 960px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+// Desktop
+@mixin desktop {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}

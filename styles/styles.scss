@@ -1,4 +1,4 @@
-@import '_media-queries';
+@import '_media-queires';
 @import '_color';
 
 * {
@@ -6,4 +6,49 @@
     margin: 0;
     box-sizing: border-box;
     background-color: $background;
+}
+
+.header {
+    @include smallPhones {
+        display: inline;
+        &__logo{
+            padding: 0px 0px 0px 50px;
+            margin: 15px 0 0 0;
+            width: 10rem;
+        }
+
+    }
+}
+
+.searchField {
+    @include smallPhones {
+        margin-top: 150px;
+        &__input {
+            width: 25em;
+            height: 3em;
+            border: 1px solid gray;
+            border-radius: 5px;
+            margin: auto;
+            display: block;
+            padding: 15px;
+            outline: none;
+        }
+
+        &__searchBtn{
+            margin-top: 130px;
+            button {
+                outline: none;
+                border: none;
+                background-color: black;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                border-radius: 5px;
+                height: 50px;
+                width: 120px;
+                margin: auto;
+                display: block;
+            }
+        }
+    }
 }
