@@ -21,7 +21,7 @@
     margin-top: 150px;
   }
   .searchField__input {
-    width: 25em;
+    width: 90%;
     height: 3em;
     border: 1px solid gray;
     border-radius: 5px;
@@ -29,7 +29,6 @@
     display: block;
     padding: 15px;
     outline: none;
-    font-size: 16px; /* or your preferred font size */
   }
   .searchField__searchBtn {
     margin-top: 130px;
