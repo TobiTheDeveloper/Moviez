@@ -6,16 +6,16 @@
     margin: 0;
     box-sizing: border-box;
     background-color: $background;
-    
+
 }
 
 .header {
     @include smallPhones {
-        display: inline;
+        margin-top: 90px;
         &__logo{
-            padding: 0px 0px 0px 50px;
-            margin: 15px 0 0 0;
-            width: 10rem;
+            margin: auto;
+            display: block;
+            width: 5rem;
         }
 
     }
@@ -45,8 +45,8 @@
                 font-weight: bold;
                 font-size: 20px;
                 border-radius: 5px;
-                height: 50px;
-                width: 120px;
+                height: 40px;
+                width: 110px;
                 margin: auto;
                 display: block;
             }
