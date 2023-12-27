@@ -29,6 +29,7 @@
     display: block;
     padding: 15px;
     outline: none;
+    font-size: 16px; /* or your preferred font size */
   }
   .searchField__searchBtn {
     margin-top: 130px;
