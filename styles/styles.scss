@@ -5,8 +5,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: $background;
-
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -30,6 +29,18 @@
                 display: block;
                 padding: 15px;
                 outline: none;
+            }
+
+            .movie-list-container {
+                width: 90%;
+                margin: 0.9em 0em 0em 0.9em;
+                font-size: 1.2500em;
+                line-height: 1.9em;
+                border: 1px solid gray;
+                border-radius: 0.5em;
+                padding: 0.5em;
+                background-color: gray;
+                color: white;
             }
         }
 
@@ -61,7 +72,7 @@
                 border: 2px black solid;
                 margin: 2em;
                 padding: 0.5em;
-                
+                line-height: 2em;
 
                 .movie-heading {
                     font-size: 1.1em;
@@ -71,7 +82,14 @@
                     // to be added
                     .genre-list{
                         list-style: none;
-                        display: inline;
+                        display: flex;
+                        height: fit-content;
+                        width: fit-content;
+                        text-indent: 0.5em;
+                        padding: 0.3em;
+                        border-radius: 50px;
+                        background-color: gray;
+                        color: white;
                     }
                 }
 
@@ -86,7 +104,19 @@
 
             .cast-details {
                 // to be added
+                border: 2px solid black;
+                height: fit-content;
+                width: 90%;
+                margin: auto;
+                display: block;
 
+            }
+
+            h1{
+                font-size: 1.8500em;
+                margin: 1em;
+                border: 2px solid black;
+                width: fit-content;
             }
         }
     }

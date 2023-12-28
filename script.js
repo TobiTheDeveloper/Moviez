@@ -81,15 +81,15 @@ const getPersonDetails = async (personId) => {
     }
 };
 
-// Function to get list of genres
-const getGenres = async () => {
+// Function to get list of movie genres
+const getMovieGenres = async () => {
     const url = `${baseURL}/genre/movie/list?api_key=${API_KEY}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
         return data.genres;
     } catch (error) {
-        console.error("Error getting genres:", error);
+        console.error("Error getting movie genres:", error);
         throw error;
     }
 };
@@ -107,17 +107,18 @@ const displayMovieDetails = (movieObj) => {
         genreListElement.removeChild(genreListElement.firstChild);
     }
 
-    // Fetch and display genres
-    getGenres()
-        .then(genres => {
-            genres.slice(0, 5).forEach(genre => {
+    // Fetch and display movie genres
+    getMovieGenres()
+        .then(movieGenres => {
+            // Display only the top 2 genres
+            movieGenres.slice(0, 2).forEach(genre => {
                 const li = document.createElement('li');
                 li.textContent = genre.name;
                 genreListElement.appendChild(li);
             });
         })
         .catch(error => {
-            console.error("Error fetching genres:", error);
+            console.error("Error fetching movie genres:", error);
         });
 
     // Fetch and display cast details
@@ -136,6 +137,8 @@ const displayMovieDetails = (movieObj) => {
     clearSearchMovieListContainer();
     searchInput.value = "";
 };
+
+
 
 // Functions for search movie list:
 const buildSearchMovieList = (moviesList) => {
