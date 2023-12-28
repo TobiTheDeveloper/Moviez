@@ -1,6 +1,6 @@
 //API Key
 const API_KEY = "da4b66d16efcf73caaa311e01941af0b";
-const baseURL = "https://image.tmdb.org/t/p/w500";
+const baseURL = "https://api.themoviedb.org/3";
 const posterPath = "/example_poster.jpg";
 const fullPosterURL = baseURL + posterPath;
 // Result: "https://image.tmdb.org/t/p/w500/example_poster.jpg"
@@ -11,7 +11,7 @@ const apiPaths = {
     findGenres: `${baseURL}/genre/movie/list?api_key=${API_KEY}`,
     findCast: (movie_id) => `${baseURL}/movie/${movie_id}/credits?api_key=${API_KEY}`,
     findPerson: (person_id) => `${baseURL}/person/${person_id}?api_key=${API_KEY}`,
-}
+};
 
 // Search For Movies Section
 const searchInput = document.querySelector('.main__searchField .input');
