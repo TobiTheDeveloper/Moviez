@@ -55,7 +55,7 @@
     display: block;
   }
   .main__movie-container-details .movie-details {
-    font-size: 1.25em;
+    font-size: 1.15em;
     border: 2px black solid;
     margin: 2em;
     padding: 0.5em;
@@ -86,7 +86,7 @@
     display: block;
   }
   .main__cast-detail-container h1 {
-    font-size: 1.85em;
+    font-size: 1.15em;
     margin: 1em;
     border: 2px solid black;
     width: -moz-fit-content;
