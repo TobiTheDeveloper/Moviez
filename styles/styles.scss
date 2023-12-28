@@ -9,30 +9,28 @@
 
 }
 
-.header {
+
+.main {
     @include smallPhones {
-        margin-top: 90px;
-        &__logo{
+        margin-top: 60px;
+        &__header {
             margin: auto;
             display: block;
-            width: 5rem;
+            width: 4rem;
         }
 
-    }
-}
-
-.searchField {
-    @include smallPhones {
-        margin-top: 150px;
-        &__input {
-            width: 90%;
-            height: 3em;
-            border: 1px solid gray;
-            border-radius: 5px;
-            margin: auto;
-            display: block;
-            padding: 15px;
-            outline: none;
+        &__searchField{
+            margin-top: 110px;
+            .input{
+                width: 90%;
+                height: 3em;
+                border: 1px solid gray;
+                border-radius: 5px;
+                margin: auto;
+                display: block;
+                padding: 15px;
+                outline: none;
+            }
         }
 
         &__searchBtn{

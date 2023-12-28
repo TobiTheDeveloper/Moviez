@@ -6,21 +6,18 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .header {
-    margin-top: 90px;
+  .main {
+    margin-top: 60px;
   }
-  .header__logo {
+  .main__header {
     margin: auto;
     display: block;
-    width: 5rem;
+    width: 4rem;
   }
-}
-
-@media only screen and (max-width: 480px) {
-  .searchField {
-    margin-top: 150px;
+  .main__searchField {
+    margin-top: 110px;
   }
-  .searchField__input {
+  .main__searchField .input {
     width: 90%;
     height: 3em;
     border: 1px solid gray;
@@ -30,10 +27,10 @@
     padding: 15px;
     outline: none;
   }
-  .searchField__searchBtn {
+  .main__searchBtn {
     margin-top: 130px;
   }
-  .searchField__searchBtn button {
+  .main__searchBtn button {
     outline: none;
     border: none;
     background-color: black;
