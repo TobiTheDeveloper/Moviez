@@ -55,8 +55,7 @@
     display: block;
   }
   .main__movie-container-details .movie-details {
-    font-size: 1.15em;
-    border: 2px black solid;
+    font-size: 0.9em;
     margin: 2em;
     padding: 0.5em;
     line-height: 2em;
@@ -78,7 +77,6 @@
     color: white;
   }
   .main__cast-detail-container .cast-details {
-    border: 2px solid black;
     height: -moz-fit-content;
     height: fit-content;
     width: 90%;
@@ -86,9 +84,8 @@
     display: block;
   }
   .main__cast-detail-container h1 {
-    font-size: 1.15em;
+    font-size: 1em;
     margin: 1em;
-    border: 2px solid black;
     width: -moz-fit-content;
     width: fit-content;
   }

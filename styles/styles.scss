@@ -68,8 +68,8 @@
             }
 
             .movie-details{
-                font-size: 1.1500em;
-                border: 2px black solid;
+                font-size: 0.9em;
+                // border: 2px black solid;
                 margin: 2em;
                 padding: 0.5em;
                 line-height: 2em;
@@ -104,7 +104,6 @@
 
             .cast-details {
                 // to be added
-                border: 2px solid black;
                 height: fit-content;
                 width: 90%;
                 margin: auto;
@@ -113,9 +112,9 @@
             }
 
             h1{
-                font-size: 1.1500em;
+                font-size: 1em;
                 margin: 1em;
-                border: 2px solid black;
+                // border: 2px solid black;
                 width: fit-content;
             }
         }
