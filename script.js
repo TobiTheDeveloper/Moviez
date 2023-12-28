@@ -13,23 +13,86 @@ const apiPaths = {
     findPerson: (person_id) => `https://api.themoviedb.org/3/person/${person_id}?api_key=${API_KEY}`,
 }
 
-const searchInput = document.querySelector('.main__searchField input');
-const searchMovieListContainer = document.querySelector('.movie-list-container');
-const movieContainer = document.querySelector('.movie-container');
-const castContainer = document.querySelector('.movie-container .cast-details-container');
-const castDetailsContainer = document.querySelector('.movie-container .cast-details-container .cast-details');
+// Search For Movies Section
+const searchInput = document.querySelector('.main__searchField .input');
+const movieListContainer = document.querySelector('.main__searchField .movie-list-container');
+const searchButton = document.querySelector('.main__searchBtn button');
+
+// Movie Container
+const movieContainer = document.querySelector('.main__movie-container-details .movie-container');
+const movieImageContainer = document.querySelector('.main__movie-container-details .movie-container .movie-image');
+const movieNameElement = document.querySelector('.main__movie-container-details .movie-container .movie-details .movie-heading .movie-name');
+const titleElement = document.querySelector('.main__movie-container-details .movie-container .movie-details .movie-title span');
+const genreListElement = document.querySelector('.main__movie-container-details .movie-container .movie-details .movie-genre .genre-list');
+const ratingsElement = document.querySelector('.main__movie-container-details .movie-container .movie-details .ratings span');
+const descriptionElement = document.querySelector('.main__movie-container-details .movie-container .movie-details .description');
+
+// Cast Detail Container
+const castDetailContainer = document.querySelector('.main__movie-container-details .main__cast-detail-container');
+const castDetailsElement = document.querySelector('.main__movie-container-details .main__cast-detail-container .cast-details');
 
 
-const searchMovie = (e) => {
-    const res = fetch(apiPaths.searchMovie(searchInput.value));
-
-    res
-    .then(res => res.json())
-    .then(res => {
-        buildSearchMovieList(res.results.slice(0,10));
-    })
-    .catch(error => {
-        console.log(error);
-    });
+// Function to search for movies
+const searchMovies = async (query) => {
+    const url = `${tmdbBaseURL}/search/movie?query=${query}&api_key=${API_KEY}`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.results;
+    } catch (error) {
+        console.error("Error searching for movies:", error);
+        throw error;
+    }
 };
 
+// Function to get movie details by ID
+const getMovieDetails = async (movieId) => {
+    const url = `${tmdbBaseURL}/movie/${movieId}?api_key=${API_KEY}`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error getting movie details:", error);
+        throw error;
+    }
+};
+
+// Function to get movie cast by movie ID
+const getMovieCast = async (movieId) => {
+    const url = `${tmdbBaseURL}/movie/${movieId}/credits?api_key=${API_KEY}`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.cast;
+    } catch (error) {
+        console.error("Error getting movie cast:", error);
+        throw error;
+    }
+};
+
+// Function to get person details by person ID
+const getPersonDetails = async (personId) => {
+    const url = `${tmdbBaseURL}/person/${personId}?api_key=${API_KEY}`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error getting person details:", error);
+        throw error;
+    }
+};
+
+// Function to get list of genres
+const getGenres = async () => {
+    const url = `${tmdbBaseURL}/genre/movie/list?api_key=${API_KEY}`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.genres;
+    } catch (error) {
+        console.error("Error getting genres:", error);
+        throw error;
+    }
+};
