@@ -1,8 +1,7 @@
 // API Key
 const API_KEY = "da4b66d16efcf73caaa311e01941af0b";
 const baseURL = "https://api.themoviedb.org/3";
-const posterPath = "https://api.themoviedb.org/3/example_poster.jpg";
-const fullPosterURL = baseURL + posterPath;
+
 
 // APIs
 const apiPaths = {
