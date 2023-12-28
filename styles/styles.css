@@ -43,4 +43,17 @@
     margin: auto;
     display: block;
   }
+  .main__movie-container-details .movie-details {
+    font-size: 1.25em;
+    border: 2px black solid;
+    margin: 2em;
+    padding: 0.5em;
+  }
+  .main__movie-container-details .movie-details .movie-heading {
+    font-size: 1.1em;
+  }
+  .main__movie-container-details .movie-details .movie-genre .genre-list {
+    list-style: none;
+    display: inline;
+  }
 }/*# sourceMappingURL=styles.css.map */

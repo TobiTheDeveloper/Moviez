@@ -49,5 +49,45 @@
                 display: block;
             }
         }
+
+        &__movie-container-details{
+            .movie-container{
+                // Still Deciding
+               // <!-- Movie Images goes in here -->
+            }
+
+            .movie-details{
+                font-size: 1.2500em;
+                border: 2px black solid;
+                margin: 2em;
+                padding: 0.5em;
+                
+
+                .movie-heading {
+                    font-size: 1.1em;
+                }
+
+                .movie-genre {
+                    // to be added
+                    .genre-list{
+                        list-style: none;
+                        display: inline;
+                    }
+                }
+
+                .description{
+                    // to be added
+                }
+            }
+        }
+
+        &__cast-detail-container{
+            // to be added
+
+            .cast-details {
+                // to be added
+
+            }
+        }
     }
 }
