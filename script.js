@@ -1,9 +1,8 @@
-//API Key
+// API Key
 const API_KEY = "da4b66d16efcf73caaa311e01941af0b";
 const baseURL = "https://api.themoviedb.org/3";
 const posterPath = "https://api.themoviedb.org/3/example_poster.jpg";
 const fullPosterURL = baseURL + posterPath;
-// Result: "https://image.tmdb.org/t/p/w500/example_poster.jpg"
 
 // APIs
 const apiPaths = {
@@ -31,7 +30,6 @@ const descriptionElement = document.querySelector('.main__movie-container-detail
 const castDetailContainer = document.querySelector('.main__movie-container-details .main__cast-detail-container');
 const castDetailsElement = document.querySelector('.main__movie-container-details .main__cast-detail-container .cast-details');
 
-
 // Function to search for movies
 const searchMovies = async (query) => {
     const url = `${baseURL}/search/movie?query=${query}&api_key=${API_KEY}`;
@@ -47,7 +45,7 @@ const searchMovies = async (query) => {
 
 // Function to get movie details by ID
 const getMovieDetails = async (movieId) => {
-    const url = `${baseURL}/movie/${movieId}?api_key=${da4b66d16efcf73caaa311e01941af0b}`;
+    const url = `${baseURL}/movie/${movieId}?api_key=${API_KEY}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -60,7 +58,7 @@ const getMovieDetails = async (movieId) => {
 
 // Function to get movie cast by movie ID
 const getMovieCast = async (movieId) => {
-    const url = `${baseURL}/movie/${movieId}/credits?api_key=${da4b66d16efcf73caaa311e01941af0b}`;
+    const url = `${baseURL}/movie/${movieId}/credits?api_key=${API_KEY}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -73,7 +71,7 @@ const getMovieCast = async (movieId) => {
 
 // Function to get person details by person ID
 const getPersonDetails = async (personId) => {
-    const url = `${baseURL}/person/${personId}?api_key=${da4b66d16efcf73caaa311e01941af0b}`;
+    const url = `${baseURL}/person/${personId}?api_key=${API_KEY}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -86,7 +84,7 @@ const getPersonDetails = async (personId) => {
 
 // Function to get list of genres
 const getGenres = async () => {
-    const url = `${baseURL}/genre/movie/list?api_key=${da4b66d16efcf73caaa311e01941af0b}`;
+    const url = `${baseURL}/genre/movie/list?api_key=${API_KEY}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -97,8 +95,7 @@ const getGenres = async () => {
     }
 };
 
-
-//Display Movie Details Function:
+// Display Movie Details Function:
 const displayMovieDetails = (movieObj) => {
     // Update the movie details container with information from movieObj
     movieNameElement.textContent = movieObj.title;
@@ -136,12 +133,12 @@ const displayMovieDetails = (movieObj) => {
 
     // Show the movie container
     movieContainer.style.display = "block";
-    searchMovieListContainer.style.display = "none";
+    movieListContainer.style.display = "none";
     clearSearchMovieListContainer();
     searchInput.value = "";
 };
 
-//Functions for search movie list:
+// Functions for search movie list:
 const buildSearchMovieList = (moviesList) => {
     // Clear existing search movie list container
     while (movieListContainer.firstChild) {
