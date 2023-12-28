@@ -7,10 +7,10 @@ const fullPosterURL = baseURL + posterPath;
 
 // APIs
 const apiPaths = {
-    searchMovie: (query) => `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}`,
-    findGenres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`,
-    findCast: (movie_id) => `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${API_KEY}`,
-    findPerson: (person_id) => `https://api.themoviedb.org/3/person/${person_id}?api_key=${API_KEY}`,
+    searchMovie: (query) => `${baseURL}/search/movie?query=${query}&api_key=${API_KEY}`,
+    findGenres: `${baseURL}/genre/movie/list?api_key=${API_KEY}`,
+    findCast: (movie_id) => `${baseURL}/movie/${movie_id}/credits?api_key=${API_KEY}`,
+    findPerson: (person_id) => `${baseURL}/person/${person_id}?api_key=${API_KEY}`,
 }
 
 // Search For Movies Section
@@ -34,7 +34,7 @@ const castDetailsElement = document.querySelector('.main__movie-container-detail
 
 // Function to search for movies
 const searchMovies = async (query) => {
-    const url = `${tmdbBaseURL}/search/movie?query=${query}&api_key=${API_KEY}`;
+    const url = `${baseURL}/search/movie?query=${query}&api_key=${API_KEY}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -47,7 +47,7 @@ const searchMovies = async (query) => {
 
 // Function to get movie details by ID
 const getMovieDetails = async (movieId) => {
-    const url = `${tmdbBaseURL}/movie/${movieId}?api_key=${API_KEY}`;
+    const url = `${baseURL}/movie/${movieId}?api_key=${da4b66d16efcf73caaa311e01941af0b}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -60,7 +60,7 @@ const getMovieDetails = async (movieId) => {
 
 // Function to get movie cast by movie ID
 const getMovieCast = async (movieId) => {
-    const url = `${tmdbBaseURL}/movie/${movieId}/credits?api_key=${API_KEY}`;
+    const url = `${baseURL}/movie/${movieId}/credits?api_key=${da4b66d16efcf73caaa311e01941af0b}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -73,7 +73,7 @@ const getMovieCast = async (movieId) => {
 
 // Function to get person details by person ID
 const getPersonDetails = async (personId) => {
-    const url = `${tmdbBaseURL}/person/${personId}?api_key=${API_KEY}`;
+    const url = `${baseURL}/person/${personId}?api_key=${da4b66d16efcf73caaa311e01941af0b}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -86,7 +86,7 @@ const getPersonDetails = async (personId) => {
 
 // Function to get list of genres
 const getGenres = async () => {
-    const url = `${tmdbBaseURL}/genre/movie/list?api_key=${API_KEY}`;
+    const url = `${baseURL}/genre/movie/list?api_key=${da4b66d16efcf73caaa311e01941af0b}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -184,4 +184,14 @@ searchInput.addEventListener('focusout', () => {
     setTimeout(() => {
         movieListContainer.style.display = "none";
     }, 130);
+});
+
+// Event Listener for Search Button
+searchButton.addEventListener('click', async () => {
+    try {
+        const searchResults = await searchMovies(searchInput.value);
+        buildSearchMovieList(searchResults.slice(0, 10));
+    } catch (error) {
+        console.error("Error searching for movies:", error);
+    }
 });
