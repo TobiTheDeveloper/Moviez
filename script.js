@@ -96,3 +96,92 @@ const getGenres = async () => {
         throw error;
     }
 };
+
+
+//Display Movie Details Function:
+const displayMovieDetails = (movieObj) => {
+    // Update the movie details container with information from movieObj
+    movieNameElement.textContent = movieObj.title;
+    titleElement.textContent = movieObj.original_title;
+    ratingsElement.textContent = movieObj.vote_average.toFixed(1);
+    descriptionElement.textContent = movieObj.overview;
+
+    // Clear existing genres list
+    while (genreListElement.firstChild) {
+        genreListElement.removeChild(genreListElement.firstChild);
+    }
+
+    // Fetch and display genres
+    getGenres()
+        .then(genres => {
+            genres.slice(0, 5).forEach(genre => {
+                const li = document.createElement('li');
+                li.textContent = genre.name;
+                genreListElement.appendChild(li);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching genres:", error);
+        });
+
+    // Fetch and display cast details
+    getMovieCast(movieObj.id)
+        .then(castDetails => {
+            // Implement logic to display cast details in the castDetailsElement
+            // You can use addCastToCastDetailsContainer function or customize as needed
+        })
+        .catch(error => {
+            console.error("Error fetching cast details:", error);
+        });
+
+    // Show the movie container
+    movieContainer.style.display = "block";
+    searchMovieListContainer.style.display = "none";
+    clearSearchMovieListContainer();
+    searchInput.value = "";
+};
+
+//Functions for search movie list:
+const buildSearchMovieList = (moviesList) => {
+    // Clear existing search movie list container
+    while (movieListContainer.firstChild) {
+        movieListContainer.removeChild(movieListContainer.firstChild);
+    }
+
+    // Build and display search movie list
+    moviesList.forEach(movie => {
+        const p = document.createElement('p');
+        p.textContent = movie.title;
+        movieListContainer.appendChild(p);
+
+        p.addEventListener('click', () => displayMovieDetails(movie));
+    });
+
+    // Show or hide the search movie list container based on input value
+    movieListContainer.style.display = searchInput.value !== "" ? "block" : "none";
+};
+
+const clearSearchMovieListContainer = () => {
+    // Clear existing search movie list container
+    while (movieListContainer.firstChild) {
+        movieListContainer.removeChild(movieListContainer.firstChild);
+    }
+};
+
+// Event Listeners:
+// Event listener for input changes (searching for movies)
+searchInput.addEventListener('input', async () => {
+    try {
+        const searchResults = await searchMovies(searchInput.value);
+        buildSearchMovieList(searchResults.slice(0, 10));
+    } catch (error) {
+        console.error("Error searching for movies:", error);
+    }
+});
+
+// Event listener for hiding the search movie list container on focus out
+searchInput.addEventListener('focusout', () => {
+    setTimeout(() => {
+        movieListContainer.style.display = "none";
+    }, 130);
+});
